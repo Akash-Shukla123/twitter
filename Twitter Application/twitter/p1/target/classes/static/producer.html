@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Producers</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f7f9f9;
+            color: #14171a;
+        }
+        .container {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .sidebar {
+            width: 25%;
+            padding: 20px;
+            background-color: #ffffff;
+            border-right: 1px solid #e1e8ed;
+        }
+        .main-content {
+            width: 50%;
+            padding: 20px;
+            background-color: #ffffff;
+            border-right: 1px solid #e1e8ed;
+        }
+        .subscribers {
+            margin-bottom: 20px;
+        }
+        .subscriber-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #e1e8ed;
+        }
+        .subscriber-item:last-child {
+            border-bottom: none;
+        }
+        .subscriber-name {
+            font-size: 16px;
+        }
+        .subscribe-btn {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #1da1f2;
+            color: #fff;
+            cursor: pointer;
+        }
+        .subscribe-btn:hover {
+            background-color: #0c85d0;
+        }
+        .message-composer {
+            margin-bottom: 20px;
+        }
+        .message-composer textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #e1e8ed;
+            border-radius: 5px;
+            resize: none;
+            font-size: 14px;
+        }
+        .message-composer button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #1da1f2;
+            color: #fff;
+            cursor: pointer;
+        }
+        .message-composer button:hover {
+            background-color: #0c85d0;
+        }
+        .message-feed {
+            margin-top: 20px;
+        }
+        .message-item {
+            border-bottom: 1px solid #e1e8ed;
+            padding: 10px 0;
+        }
+        .message-item:last-child {
+            border-bottom: none;
+        }
+        .message-content {
+            font-size: 14px;
+            color: #333;
+        }
+        .right-sidebar {
+            width: 25%;
+            padding: 20px;
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Subscribers</h2>
+        <div class="subscribers">
+            <div class="subscriber-item">
+                <span class="subscriber-name">Subscriber 1</span>
+                <button class="subscribe-btn">Subscribe</button>
+            </div>
+            <div class="subscriber-item">
+                <span class="subscriber-name">Subscriber 2</span>
+                <button class="subscribe-btn">Subscribe</button>
+            </div>
+            <div class="subscriber-item">
+                <span class="subscriber-name">Subscriber 3</span>
+                <button class="subscribe-btn">Subscribe</button>
+            </div>
+        </div>
+    </div>
+    <!-- Main Content -->
+    <div class="main-content">
+        <h2>Compose a Message</h2>
+        <div class="message-composer">
+            <textarea id="message-content" rows="4" placeholder="Write a message..."></textarea>
+            <button id="sendmessage" name="sendmessage">Send Message</button>
+        </div>
+        <div class="message-feed">
+            <h3>Message Feed</h3>
+            <div class="message-item">
+                <p class="message-content">This is a sample message sent to Subscriber 1.</p>
+            </div>
+            <div class="message-item">
+                <p class="message-content">Hello Subscriber 2! Welcome to the community.</p>
+            </div>
+        </div>
+    </div>
+    <!-- Right Sidebar -->
+    <div class="right-sidebar">
+        <h2>Trending Topics</h2>
+        <ul>
+            <li>#Tech</li>
+            <li>#SpringBoot</li>
+            <li>#Coding</li>
+        </ul>
+    </div>
+</div>
+
+<script src="js/producer.js"></script>
+</body>
+</html>

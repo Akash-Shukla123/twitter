@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Role</title>
+    <style>
+        /* Add some basic styling */
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        form {
+            width: 300px;
+            margin: 50px auto;
+        }
+        input, textarea, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Create Role</h2>
+<form id="roleForm">
+    <label for="rolename">Role Name</label>
+    <input type="text" id="rolename" name="rolename" required />
+
+    <label for="roledesc">Role Description</label>
+    <textarea id="roledesc" name="roledesc" required></textarea>
+
+    <button type="submit">Save Role</button>
+</form>
+
+<script>
+    // Handle form submission
+    document.getElementById('roleForm').addEventListener('submit', function(event) {
+        event.preventDefault();  // Prevent form from submitting the default way
+
+        const roleData = {
+            rolename: document.getElementById('rolename').value,
+            roledesc: document.getElementById('roledesc').value
+        };
+
+        // Call the save API with the role data
+        fetch('/roles/create', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(roleData)
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert('Role created successfully!');
+            console.log('Role data:', data);
+            document.getElementById('roleForm').reset();  // Optionally reset the form after success
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Failed to create role.');
+        });
+    });
+</script>
+</body>
+</html>
